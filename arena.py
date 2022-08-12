@@ -6,3 +6,24 @@ class Arena:
         self.robot = Robot()
         self.dinosaur = Dinosaur()
         pass
+
+    def run_game(self):
+        game_on = input("Do you want to turn on the game? Yes or No.")
+        return game_on
+        pass
+
+    def display_welcome(self):
+        print("Welcome to Robot vs. Dinosaur!!")
+
+    def battle_phase(self):
+        remaining_health_dino = Robot.attack(self.dinosaur.health)
+        print(f"Dinosaur is at {remaining_health_dino} health.")
+        remaining_health_robot = Dinosaur.attack(self.robot.health)
+        print(f"Dinosaur is at {remaining_health_robot} health.")
+    
+    def display_winner(self):
+        if self.dinosaur.health <= 0:
+            print("Robot Wins!!")
+        elif self.robot.health <0:
+            print("Dinosaur Wins!!")
+
