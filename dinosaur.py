@@ -8,7 +8,7 @@ class Dinosaur:
         pass
 
     def attack(self, robot):
-        robot - self.attack_power
+        return robot - self.attack_power
         
 
 

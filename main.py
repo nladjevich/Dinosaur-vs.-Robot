@@ -1,14 +1,13 @@
+
 from arena import Arena
 from robot import Robot
 from dinosaur import Dinosaur
 from weapons import Weapon
 
-Dinosaur1 = Dinosaur("Jerry", 30)
-Robot1 = Robot("Metatron")
-Weapon1 = ("Sword", 20)
+current_arena = Arena()
 
-
-game = Arena.run_game()
+game = current_arena.run_game()
 if game == "Yes":
-    Arena.display_welcome()
-    Arena.battle_phase
+    current_arena.display_welcome()
+    current_arena.battle_phase()
+    
