@@ -1,3 +1,4 @@
+
 from robot import Robot
 from dinosaur import Dinosaur
 
@@ -12,13 +13,25 @@ class Arena:
         return game_on
 
     def display_welcome(self):
-        print("Welcome to Robot vs. Dinosaur!!")
+        print(f"Welcome to Robot vs. Dinosaur!! {self.dinosaur.name} the Dinosaur vs. {self.robot.name} the Robot!!")
 
     def battle_phase(self):
-        remaining_health_dino = self.robot.attack(self.dinosaur.health)
-        print(f"Dinosaur is at {remaining_health_dino} health.")
-        remaining_health_robot = self.dinosaur.attack(self.robot.health)
-        print(f"Robot is at {remaining_health_robot} health.")
+        dinosaur_loss = "r_wins"
+        robot_loss = "d_wins"
+        while self.dinosaur.health or self.robot.health > 0:
+            print (f"{self.robot.name} attacks!")
+            self.dinosaur.health = self.robot.attack(self.dinosaur.health)
+            print(f"{self.dinosaur.name} is at {self.dinosaur.health} health.")
+            if self.dinosaur.health <= 0:
+                print(f"{self.dinosaur.name} the Dinosaur has fallen to {self.robot.name}'s mighty weapon!! Robot Wins!!")
+                return dinosaur_loss
+            print(f"{self.dinosaur.name} attacks!")
+            self.robot.health  = self.dinosaur.attack(self.robot.health)
+            print(f"{self.robot.name} is at {self.robot.health} health.")
+            if self.robot.health <= 0:
+                print(f"{self.robot.name} the Robot has fallen to the fierce claws of {self.dinosaur.name}!! Dinosaur Wins!!")
+                return robot_loss
+        
     
     def display_winner(self):
         if self.dinosaur.health <= 0:
