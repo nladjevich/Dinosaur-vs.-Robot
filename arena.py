@@ -23,19 +23,17 @@ class Arena:
             self.dinosaur.health = self.robot.attack(self.dinosaur.health)
             print(f"{self.dinosaur.name} is at {self.dinosaur.health} health.")
             if self.dinosaur.health <= 0:
-                print(f"{self.dinosaur.name} the Dinosaur has fallen to {self.robot.name}'s mighty weapon!! Robot Wins!!")
-                return dinosaur_loss
+                break
             print(f"{self.dinosaur.name} attacks!")
             self.robot.health  = self.dinosaur.attack(self.robot.health)
             print(f"{self.robot.name} is at {self.robot.health} health.")
             if self.robot.health <= 0:
-                print(f"{self.robot.name} the Robot has fallen to the fierce claws of {self.dinosaur.name}!! Dinosaur Wins!!")
-                return robot_loss
+                break
         
     
     def display_winner(self):
         if self.dinosaur.health <= 0:
-            print("Robot Wins!!")
+            print(f"{self.dinosaur.name} the Dinosaur has fallen to {self.robot.name}'s mighty weapon!! Robot Wins!!")
         elif self.robot.health <= 0:
-            print("Dinosaur Wins!!")
+            print(f"{self.robot.name} the Robot has fallen to the fierce claws of {self.dinosaur.name}!! Dinosaur Wins!!")
 

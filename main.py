@@ -12,5 +12,6 @@ game = current_arena.run_game()
 if game == "Yes":
     current_arena.display_welcome()
     outcome = current_arena.battle_phase()
+    current_arena.display_winner()
     
     
